@@ -1,0 +1,22 @@
+.navigation{
+    display: block;
+    align-items: center;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 500;
+    color: teal;
+    font-size: 18px;
+}
+
+.activeLink {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 500;
+    color: tomato;
+    font-size: 18px;
+}
