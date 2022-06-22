@@ -2,6 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 import HomeView from 'views/HomeView';
 import MoviesView from 'views/MoviesView';
+import MovieDetails from 'views/MovieDetails';
+import Cast from 'views/Cast';
+import Reviews from 'views/Reviews';
 
 export const App = () => {
   return (
@@ -15,13 +18,19 @@ export const App = () => {
         
       // }}
     >
-      <Navigation />
+      
+        <Navigation />
 
-      <Routes>
-        <Route path='/' element={<HomeView />} />
-        <Route path='/movies' element={<MoviesView />} />
-        <Route path='*' element={<HomeView />} /> 
-      </Routes>
+        <Routes>
+          <Route path='/' element={<HomeView />} />
+          <Route path='/movies' element={<MoviesView />} exact />
+          <Route path='/movies/:movieId' element={<MovieDetails />}>
+            <Route path='cast' element={<Cast />} />
+            <Route path='reviews' element={<Reviews />} />
+          </Route>
+          <Route path='*' element={<HomeView />} /> 
+        </Routes>
+       
       
     </div>
   );
