@@ -1,8 +1,12 @@
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchMovieById } from "service/fetchMovies";
 
 export default function MovieDetails() {
+    const location = useLocation();
+    let navigate = useNavigate() ;
+    
+
     const params = useParams();
     const movieId = params.movieId;
 
@@ -18,9 +22,15 @@ export default function MovieDetails() {
     useEffect(() => {
         setGenres(movieDetails.genres)
     }, [movieDetails]);
+
+    const goBack = () => {
+        if (location.state === null){ return navigate('/', { replace: true }) }
+        navigate(location.state.from.pathname, { replace: true });
+    }
     
     return (
         <div>
+            <button type='button' onClick={goBack}>Go back</button>
             <h2>{movieDetails.title}</h2>
             <img 
                 src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}

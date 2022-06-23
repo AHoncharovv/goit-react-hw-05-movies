@@ -44,6 +44,17 @@ export function fetchMovieReviews(id) {
     )
 }
 
+export function fetchMovieByName(name) {
+    return (fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${name}&page=1&include_adult=false`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(new Error("Ничего не найдено"))
+            }
+            return res.json();
+        })  
+    )
+}
+
 // export function fetchPicture(picture, page) {
 //     return (
 

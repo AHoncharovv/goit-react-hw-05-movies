@@ -21,7 +21,7 @@ export default function Reviews() {
                         <p>{review.content}</p>
                     </li>)
                 :   <p>Nothing here</p>
-                }
+            }
         </ul>
     )
 }

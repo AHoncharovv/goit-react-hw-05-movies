@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { fetchTrending } from "service/fetchMovies";
 
 export default function HomeView() {
-    
+    const location = useLocation();
 
     const [movies, setMovies] = useState([]);
 
@@ -18,7 +18,9 @@ export default function HomeView() {
             <ul>
                 {movies && movies.map(movie => (
                     <li key={movie.id}>
-                        <Link to={`/movies/${movie.id}`}>
+                        <Link
+                            to={`/movies/${movie.id}`}
+                            state={{from: location }}>
                             {movie.title ?? movie.name}
                         </Link>
                     </li>  
@@ -27,14 +29,3 @@ export default function HomeView() {
         </>
     )
 }
-
-// {/* <ul className={s.imageGallery}>
-//             {searchPicture &&
-//                 searchPicture.map((picture) => (  
-//                     <ImageGalleryItem
-//                         picture={picture}
-//                         key={picture.id}
-//                         clickedUrl={handleClick}
-//                     />
-//             ))}
-//         </ul>  */}
