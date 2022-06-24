@@ -1,6 +1,7 @@
-import { useParams, Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchMovieById } from "service/fetchMovies";
+import s from './MovieDetails.module.css';
 
 export default function MovieDetails() {
     const location = useLocation();
@@ -29,26 +30,35 @@ export default function MovieDetails() {
     }
     
     return (
-        <div>
-            <button type='button' onClick={goBack}>Go back</button>
+        <div className={s.container}>
+            <button type='button' onClick={goBack} className={s.button}>Go back</button>
             <h2>{movieDetails.title}</h2>
             <img 
                 src={`https://image.tmdb.org/t/p/w500${movieDetails.backdrop_path}`}
-                alt={movieDetails.title}>
+                alt={movieDetails.title}
+                className={s.img}>
             </img>
             <p>{movieDetails.release_date && `Release date: ${movieDetails.release_date}`}</p>
             <h3>Overview</h3>
             <span>{movieDetails.overview}</span>
             <h3>Genres</h3>
-            <ul>
+            <ul className={s.li}>
                 {(genres && genres.length) && genres.map(genre => (
                     <li key={genre.id}>{genre.name}</li>
                 ))}
             </ul>
             <hr />
-            <ul>
-                <li><Link to="cast">Cast</Link></li>
-                <li><Link to="reviews">Reviews</Link></li>
+            <ul className={s.li}>
+                <li>
+                    <NavLink to="cast"
+                        className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
+                        Cast
+                    </NavLink></li>
+                <li>
+                    <NavLink to="reviews"
+                        className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
+                        Reviews
+                    </NavLink></li>
             </ul>
             <Outlet />
         </div>

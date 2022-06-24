@@ -1,0 +1,18 @@
+.container {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    color: teal;
+}
+.li {
+     list-style: none;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 500;
+    color: teal;
+    font-size: 18px;
+}

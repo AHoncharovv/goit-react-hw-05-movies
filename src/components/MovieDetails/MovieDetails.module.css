@@ -1,0 +1,47 @@
+.li {
+    list-style: none;
+}
+
+.container {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    color: teal;
+}
+
+.button {
+ margin-left: 5px;
+ margin-right: auto;
+ width: auto;
+ font-weight: 700;
+ color: tomato;
+ font-size: 15px;
+ background-color: rgb(234, 240, 240);
+ border: 1px solid tomato;
+ border-radius: 4px;
+}
+
+.img {
+ margin-left: 5px;
+ margin-right: auto;
+ width: 500px;
+ height: auto;
+}
+
+.link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 500;
+    color: teal;
+    font-size: 18px;
+}
+
+.activeLink {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 500;
+    color: tomato;
+    font-size: 18px;
+}

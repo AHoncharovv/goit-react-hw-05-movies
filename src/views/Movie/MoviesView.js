@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link, useLocation } from "react-router-dom";
 import { fetchMovieByName } from "service/fetchMovies";
+import s from './Movie.module.css'
 
 export default function MoviesView() {
     const location = useLocation();
@@ -24,7 +25,7 @@ export default function MoviesView() {
     }, [movieQuery])
 
     return (
-        <div>
+        <div className={s.container}>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -33,19 +34,21 @@ export default function MoviesView() {
                     placeholder=""
                     onChange={e=>{setSearchValue(e.target.value.toLowerCase())}}
                     value={searchValue}
+                    className={s.input}
                 />
                 <span>
-                    <button type="submit">
+                    <button type="submit" className={s.button}>
                         Search  
                     </button>
                 </span>
             </form>
-            <ul>
+            <ul className={s.li}>
                 {(searchMovie && searchMovie.length) && searchMovie.map(movie => (
                     <li key={movie.id}>
                         <Link
                             to={`/movies/${movie.id}`}
-                            state={{from: location }}>
+                            state={{ from: location }}
+                            className={s.link}>
                             {movie.title ?? movie.name}
                         </Link>
                     </li>
