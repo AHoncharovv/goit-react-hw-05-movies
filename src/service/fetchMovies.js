@@ -54,30 +54,3 @@ export function fetchMovieByName(name) {
         })  
     )
 }
-
-// export function fetchPicture(picture, page) {
-//     return (
-
-//         fetch(`https://pixabay.com/api/?q=${picture}&page=${page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=12`)
-//             .then(response => {
-//                 if (response.ok) { return response.json() }
-//                 return Promise.reject(new Error("Ничего не найдено"))
-//             })
-//     )
-// }
-
-// useEffect(() => {
-//     if (searchValue === "") { return };
-
-//     setIsLoading(true);
-//     fetchPicture(searchValue, page)
-//         .then(response => {
-//             setTotalPages(response.total);
-//             setSearchPicture(prevState => [...prevState, ...response.hits]);
-//         })
-//         .catch(err => {
-//             setError(err)
-//             alert(error)
-//         })
-//         .finally(() => setIsLoading(false))
-// }, [searchValue, page, error])

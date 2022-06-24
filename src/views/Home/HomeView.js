@@ -8,11 +8,11 @@ export default function HomeView() {
 
     const [movies, setMovies] = useState([]);
 
-
     useEffect(() => {
         fetchTrending().then(result =>
             setMovies(result.results)).catch(error => alert(error));
-    }, []);
+    }, [])
+    
     return (
         <div className={s.container}>
             <h2>Trending Today</h2>

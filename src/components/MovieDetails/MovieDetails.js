@@ -7,7 +7,6 @@ export default function MovieDetails() {
     const location = useLocation();
     let navigate = useNavigate() ;
     
-
     const params = useParams();
     const movieId = params.movieId;
 
@@ -18,11 +17,11 @@ export default function MovieDetails() {
         fetchMovieById(movieId).then(res => {
             setMovieDetails(res);
         }).catch(error => alert(error));
-    }, [movieId]);
+    }, [movieId])
 
     useEffect(() => {
         setGenres(movieDetails.genres)
-    }, [movieDetails]);
+    }, [movieDetails])
 
     const goBack = () => {
         if (location.state === null){ return navigate('/', { replace: true }) }
@@ -61,7 +60,6 @@ export default function MovieDetails() {
                     </NavLink></li>
             </ul>
             <Outlet />
-        </div>
-        
+        </div>     
     )
 }
