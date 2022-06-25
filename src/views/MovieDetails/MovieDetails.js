@@ -5,7 +5,7 @@ import s from './MovieDetails.module.css';
 
 export default function MovieDetails() {
     const location = useLocation();
-    let navigate = useNavigate() ;
+    let navigate = useNavigate();
     
     const params = useParams();
     const movieId = params.movieId;
@@ -25,8 +25,7 @@ export default function MovieDetails() {
 
     const goBack = () => {
         if(location.state.from.search){return navigate(`/movies${location.state.from.search}`, { replace: true })}
-        // if (location.state === null){ return navigate('/', { replace: true }) }
-        navigate(location.state.from.pathname, { replace: true });
+        navigate(location.state.from, { replace: true });
     }
     
     return (
@@ -51,11 +50,13 @@ export default function MovieDetails() {
             <ul className={s.li}>
                 <li className={s.link}>
                     <NavLink to="cast"
-                        className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
+                        state={{ from: location.state.from }}
+                       className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
                         Cast
                     </NavLink></li>
                 <li className={s.link}>
                     <NavLink to="reviews"
+                        state={{ from: location.state.from }}
                         className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
                         Reviews
                     </NavLink></li>
