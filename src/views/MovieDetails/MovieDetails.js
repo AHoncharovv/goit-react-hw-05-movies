@@ -1,5 +1,5 @@
 import { useParams, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { fetchMovieById } from "service/fetchMovies";
 import s from './MovieDetails.module.css';
 
@@ -59,7 +59,9 @@ export default function MovieDetails() {
                         Reviews
                     </NavLink></li>
             </ul>
-            <Outlet />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />                        
+            </Suspense>
         </div>     
     )
 }
