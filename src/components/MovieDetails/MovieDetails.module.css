@@ -2,6 +2,12 @@
     list-style: none;
 }
 
+.link:hover,
+.link:focus {
+    color: tomato;
+   
+}
+
 .container {
     padding: 25px;
     display: flex;

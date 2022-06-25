@@ -20,7 +20,7 @@ export default function Reviews() {
                         <h3>{review.author}</h3>
                         <p>{review.content}</p>
                     </li>)
-                :   <p>Nothing here</p>
+                :   <p>Nothing here...</p>
             }
         </ul>
     )

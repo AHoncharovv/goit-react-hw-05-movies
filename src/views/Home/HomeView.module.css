@@ -16,3 +16,9 @@
     color: teal;
     font-size: 18px;
 }
+
+.link:hover,
+.link:focus {
+    color: tomato;
+   
+}

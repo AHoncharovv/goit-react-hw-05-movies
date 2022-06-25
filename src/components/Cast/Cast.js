@@ -23,7 +23,7 @@ export default function Cast() {const { movieId } = useParams();
                         <p>Character: {actor.character}</p>
                         <p>{actor.name}</p>
                     </li>))
-                :   <p>Nothing here</p> 
+                :   <p>Nothing here...</p> 
             }
         </ul>
     )

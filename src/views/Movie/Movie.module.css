@@ -18,6 +18,12 @@
     font-size: 18px;
 }
 
+.link:hover,
+.link:focus {
+    color: tomato;
+   
+}
+
 .button {
  margin-left: 5px;
  margin-right: auto;

@@ -48,12 +48,12 @@ export default function MovieDetails() {
             </ul>
             <hr />
             <ul className={s.li}>
-                <li>
+                <li className={s.link}>
                     <NavLink to="cast"
                         className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
                         Cast
                     </NavLink></li>
-                <li>
+                <li className={s.link}>
                     <NavLink to="reviews"
                         className={({ isActive }) => (isActive ? `${s.activeLink}` : `${s.link}`)}>
                         Reviews
