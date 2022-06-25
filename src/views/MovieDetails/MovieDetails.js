@@ -24,7 +24,8 @@ export default function MovieDetails() {
     }, [movieDetails])
 
     const goBack = () => {
-        if (location.state === null){ return navigate('/', { replace: true }) }
+        if(location.state.from.search){return navigate(`/movies${location.state.from.search}`, { replace: true })}
+        // if (location.state === null){ return navigate('/', { replace: true }) }
         navigate(location.state.from.pathname, { replace: true });
     }
     
