@@ -15,6 +15,7 @@ export default function MoviesView() {
     const handleSubmit = event => {
         event.preventDefault();
         setSearchParams({ query: searchValue }); 
+        setSearchValue(searchValue);
     }
 
     useEffect(() => {
